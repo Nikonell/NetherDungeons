@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "netherdungeons:warped_nether_bricks"
+    },
+    "result": "netherdungeons:warped_nether_brick_wall",
+    "count": 1
+}

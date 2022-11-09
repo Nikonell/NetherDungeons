@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "netherdungeons:block/magma_nether_brick_slab"
+    },
+    "type=double": {
+      "model": "netherdungeons:block/magma_nether_bricks"
+    },
+    "type=top": {
+      "model": "netherdungeons:block/magma_nether_brick_slab_top"
+    }
+  }
+}

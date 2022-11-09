@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "netherdungeons:block/warped_nether_wart_stage2"
+  }
+}

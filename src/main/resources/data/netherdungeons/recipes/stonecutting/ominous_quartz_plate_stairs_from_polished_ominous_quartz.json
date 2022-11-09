@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "netherdungeons:polished_ominous_quartz"
+    },
+    "result": "netherdungeons:ominous_quartz_plate_stairs",
+    "count": 1
+}

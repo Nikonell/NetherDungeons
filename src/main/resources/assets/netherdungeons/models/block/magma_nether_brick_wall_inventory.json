@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "netherdungeons:block/magma_nether_bricks"
+  }
+}

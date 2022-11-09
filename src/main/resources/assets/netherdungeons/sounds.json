@@ -1,0 +1,27 @@
+{
+  "baby_ghast_death": {
+    "subtitle": "sounds.netherdungeons.baby_ghast_death",
+    "sounds": [
+      "netherdungeons:baby_ghast_death-001",
+      "netherdungeons:baby_ghast_death-002"
+    ]
+  },
+  "baby_ghast_ambient": {
+    "subtitle": "sounds.netherdungeons.baby_ghast_ambient",
+    "sounds": [
+      "netherdungeons:baby_ghast_ambient-001"
+    ]
+  },
+  "baby_ghast_hurt": {
+    "subtitle": "sounds.netherdungeons.baby_ghast_hurt",
+    "sounds": [
+      "netherdungeons:baby_ghast_hurt-001"
+    ]
+  },
+  "vampirism": {
+    "subtitle": "sounds.netherdungeons.vampirism",
+    "sounds": [
+      "netherdungeons:vampirism-001"
+    ]
+  }
+}

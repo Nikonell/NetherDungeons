@@ -1,0 +1,6 @@
+{
+    "parent": "netherdungeons:item/cursed_bow",
+    "textures": {
+        "layer0": "netherdungeons:item/cursed_bow_pulling_2"
+    }
+}

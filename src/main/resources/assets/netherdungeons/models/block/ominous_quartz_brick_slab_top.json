@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "netherdungeons:block/ominous_quartz_bricks",
+    "side": "netherdungeons:block/ominous_quartz_bricks",
+    "top": "netherdungeons:block/ominous_quartz_bricks"
+  }
+}

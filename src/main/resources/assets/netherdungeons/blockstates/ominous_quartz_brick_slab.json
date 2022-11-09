@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "netherdungeons:block/ominous_quartz_brick_slab"
+    },
+    "type=double": {
+      "model": "netherdungeons:block/ominous_quartz_bricks"
+    },
+    "type=top": {
+      "model": "netherdungeons:block/ominous_quartz_brick_slab_top"
+    }
+  }
+}

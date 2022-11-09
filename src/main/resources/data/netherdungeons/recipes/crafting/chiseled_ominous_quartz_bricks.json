@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "_",
+        "_"
+    ],
+    "key": {
+        "_": {
+            "item": "netherdungeons:ominous_quartz_brick_slab"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:chiseled_ominous_quartz_bricks",
+        "count": 1
+    }
+}

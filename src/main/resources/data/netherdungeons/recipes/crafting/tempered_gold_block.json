@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ggg",
+        "ggg",
+        "ggg"
+    ],
+    "key": {
+        "g": {
+            "item": "netherdungeons:tempered_gold_ingot"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:tempered_gold_block",
+        "count": 1
+    }
+}

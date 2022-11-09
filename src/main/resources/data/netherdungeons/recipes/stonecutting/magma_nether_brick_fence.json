@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "netherdungeons:magma_nether_bricks"
+    },
+    "result": "netherdungeons:magma_nether_brick_fence",
+    "count": 3
+}

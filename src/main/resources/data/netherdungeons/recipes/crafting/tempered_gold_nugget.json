@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I"
+    ],
+    "key": {
+    "I": {
+            "item": "netherdungeons:tempered_gold_ingot"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:tempered_gold_nugget",
+        "count": 1
+    }
+}

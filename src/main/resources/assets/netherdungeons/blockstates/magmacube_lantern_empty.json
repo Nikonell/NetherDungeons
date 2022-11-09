@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "hanging=false,facing=north": {
+      "model": "netherdungeons:block/magmacube_lantern_empty",
+      "y": 0
+    },
+    "hanging=false,facing=east": {
+      "model": "netherdungeons:block/magmacube_lantern_empty",
+      "y": 90
+    },
+    "hanging=false,facing=west": {
+      "model": "netherdungeons:block/magmacube_lantern_empty",
+      "y": 270
+    },
+    "hanging=false,facing=south": {
+      "model": "netherdungeons:block/magmacube_lantern_empty",
+      "y": 180
+    },
+    "hanging=true,facing=north": {
+      "model": "netherdungeons:block/magmacube_lantern_empty_hanging",
+      "y": 0
+    },
+    "hanging=true,facing=east": {
+      "model": "netherdungeons:block/magmacube_lantern_empty_hanging",
+      "y": 90
+    },
+    "hanging=true,facing=west": {
+      "model": "netherdungeons:block/magmacube_lantern_empty_hanging",
+      "y": 270
+    },
+    "hanging=true,facing=south": {
+      "model": "netherdungeons:block/magmacube_lantern_empty_hanging",
+      "y": 180
+    }
+  }
+}

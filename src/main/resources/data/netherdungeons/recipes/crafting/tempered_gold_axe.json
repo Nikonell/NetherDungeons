@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "nn",
+        "n/",
+        " /"
+    ],
+    "key": {
+        "n": {
+            "item": "netherdungeons:tempered_gold_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:tempered_gold_axe",
+        "count": 1
+    }
+}

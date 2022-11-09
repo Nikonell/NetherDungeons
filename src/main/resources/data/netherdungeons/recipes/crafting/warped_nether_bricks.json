@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BM",
+        "MB"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:nether_brick"
+        },
+        "M": {
+            "item": "netherdungeons:warped_nether_wart"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:warped_nether_bricks",
+        "count": 1
+    }
+}

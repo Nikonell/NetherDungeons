@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "netherdungeons:ominous_quartz_bricks"
+    },
+    "result": "netherdungeons:ominous_quartz_brick_stairs",
+    "count": 1
+}

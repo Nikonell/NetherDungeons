@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "netherdungeons:block/polished_ominous_quartz",
+    "side": "netherdungeons:block/polished_ominous_quartz",
+    "top": "netherdungeons:block/polished_ominous_quartz"
+  }
+}

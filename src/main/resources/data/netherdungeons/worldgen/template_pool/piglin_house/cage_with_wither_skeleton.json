@@ -1,0 +1,24 @@
+{
+  "name": "netherdungeons:piglin_house/cage_with_wither_skeleton",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 100,
+      "element": {
+        "location": "netherdungeons:piglin_house/cage_with_wither_skeleton",
+        "processors": "minecraft:empty",
+		"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "location": "netherdungeons:piglin_house/empty_cage",
+        "processors": "minecraft:empty",
+    "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

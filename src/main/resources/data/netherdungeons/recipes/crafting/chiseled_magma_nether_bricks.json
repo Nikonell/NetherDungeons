@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "netherdungeons:magma_nether_brick_slab"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:chiseled_magma_nether_bricks",
+        "count": 1
+    }
+}

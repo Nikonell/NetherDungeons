@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "netherdungeons:block/polished_ominous_quartz_slab"
+    },
+    "type=double": {
+      "model": "netherdungeons:block/polished_ominous_quartz"
+    },
+    "type=top": {
+      "model": "netherdungeons:block/polished_ominous_quartz_slab_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "netherdungeons:block/magma_nether_bricks"
+  }
+}

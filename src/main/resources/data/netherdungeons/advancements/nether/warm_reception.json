@@ -1,0 +1,37 @@
+{
+    "display": {
+        "icon": {
+            "item": "netherdungeons:tempered_gold_axe"
+        },
+        "title": {
+            "translate": "advancements.nether.warm_reception.title"
+        },
+        "description": {
+            "translate": "advancements.nether.warm_reception.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "minecraft:nether/find_bastion",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:entity_killed_player",
+            "conditions": {
+                "killing_blow": {
+                    "direct_entity": {
+                        "type": "minecraft:piglin_brute",
+                        "location": {
+                            "dimension": "the_nether",
+                            "feature": "bastion_remnant"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "requirements": [
+        ["requirement"]
+    ]
+}

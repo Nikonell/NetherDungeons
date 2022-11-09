@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "netherdungeons:ominous_quartz_plate"
+        }
+    },
+    "result": {
+        "item": "netherdungeons:ominous_quartz_plate_stairs",
+        "count": 4
+    }
+}

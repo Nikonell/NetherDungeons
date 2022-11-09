@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "netherdungeons:ominous_quartz"
+    },
+    "result": "netherdungeons:ominous_quartz_brick_slab",
+    "count": 2
+}

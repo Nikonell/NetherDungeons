@@ -25,6 +25,7 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -89,7 +90,8 @@ public class BabyGhastEntity extends TamableAnimal {
         this.goalSelector.addGoal(1, new BabyGhastHoverGoal(this));
         this.goalSelector.addGoal(2, new BabyGhastFollowOwnerGoal(this, 1.2, 10f, 5f));
         this.goalSelector.addGoal(3, new BabyGhastGiveVampirismEffectGoal(this));
-        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1, 20) {
+        this.goalSelector.addGoal(4, new TranslateBabyGhastIntoGhastGoal(this));
+        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1, 20) {
             @Override
             protected Vec3 getPosition() {
                 RandomSource random = BabyGhastEntity.this.getRandom();
@@ -99,8 +101,8 @@ public class BabyGhastEntity extends TamableAnimal {
                 return new Vec3(dir_x, dir_y, dir_z);
             }
         });
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 30.0f, 1));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 30.0f, 1));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
     }
 
     public void setHovering(boolean hovering) {
@@ -228,7 +230,7 @@ public class BabyGhastEntity extends TamableAnimal {
         return NDSounds.BABY_GHAST_DEATH.get();
     }
 
-    private class BabyGhastHoverGoal extends Goal {
+    private static class BabyGhastHoverGoal extends Goal {
         private final BabyGhastEntity babyGhast;
 
         public BabyGhastHoverGoal(BabyGhastEntity babyGhast) {
@@ -258,7 +260,7 @@ public class BabyGhastEntity extends TamableAnimal {
         DungeonHooks.addDungeonMob(NDEntityTypes.BABY_GHAST.get(), 180);
     }
 
-    public class BabyGhastFollowOwnerGoal extends Goal {
+    public static class BabyGhastFollowOwnerGoal extends Goal {
         public static final int TELEPORT_WHEN_DISTANCE_IS = 50;
         private final BabyGhastEntity babyGhast;
         private LivingEntity owner;
@@ -384,7 +386,7 @@ public class BabyGhastEntity extends TamableAnimal {
         }
     }
 
-    private class BabyGhastGiveVampirismEffectGoal extends Goal {
+    private static class BabyGhastGiveVampirismEffectGoal extends Goal {
         private final BabyGhastEntity babyGhast;
         private LivingEntity owner;
 
@@ -404,6 +406,31 @@ public class BabyGhastEntity extends TamableAnimal {
         @Override
         public void tick() {
             owner.addEffect(new MobEffectInstance(NDEffects.VAMPIRISM.get(), 165, 0));
+        }
+    }
+
+    private static class TranslateBabyGhastIntoGhastGoal extends Goal {
+        private final BabyGhastEntity babyGhast;
+        private int timer = 0;
+
+        public TranslateBabyGhastIntoGhastGoal(BabyGhastEntity babyGhast) { this.babyGhast = babyGhast; }
+
+        @Override
+        public boolean canUse() {
+            Player nearestPlayer = this.babyGhast.getLevel().getNearestPlayer(this.babyGhast, 64);
+            return (nearestPlayer != null || timer > 0) && !this.babyGhast.isTame();
+        }
+
+        @Override
+        public void tick() {
+            this.timer += 1;
+            if (this.timer >= 4800) {
+                Level level = this.babyGhast.getLevel();
+                Ghast ghast = new Ghast(EntityType.GHAST, level);
+                ghast.setPos(this.babyGhast.position());
+                level.addFreshEntity(ghast);
+                this.babyGhast.remove(RemovalReason.DISCARDED);
+            }
         }
     }
 }

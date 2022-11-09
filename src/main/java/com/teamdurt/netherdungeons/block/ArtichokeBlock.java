@@ -87,12 +87,13 @@ public class ArtichokeBlock extends BushBlock {
         int i = (Integer) state.getValue(AGE);
         boolean flag = i == MAX_AGE;
         if (flag) {
-            int breakChance = player.getItemInHand(hand).is(Items.SHEARS) ? 0 : 70;
-            boolean willBreak = level.random.nextInt(100) + 1 <= breakChance;
+            ItemStack itemInHand = player.getItemInHand(hand)
+            int breakChance = itemInHand.is(Items.SHEARS) ? 0 : 70;
+            boolean willBreak = level.random.nextInt(1, 101) <= breakChance;
             popResource(level, pos, new ItemStack(NDItems.ARTICHOKE_FRUIT.get(), 1));
-            if (player.getItemInHand(hand).getDamageValue() >= 237) {
-                player.getItemInHand(hand).shrink(1);
-                player.getItemInHand(hand).setDamageValue(0);
+            if (itemInHand.getDamageValue() >= 237) {
+                itemInHand.getItemInHand(hand).shrink(1);
+                itemInHand.getItemInHand(hand).setDamageValue(0);
             } else player.getItemInHand(hand).setDamageValue(player.getItemInHand(hand).getDamageValue() + 1);
 
             if (willBreak) {

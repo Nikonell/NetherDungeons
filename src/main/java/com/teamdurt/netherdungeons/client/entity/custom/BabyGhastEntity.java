@@ -38,20 +38,11 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.util.EnumSet;
 
-public class BabyGhastEntity extends TamableAnimal implements IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
+public class BabyGhastEntity extends TamableAnimal {
     private static final EntityDataAccessor<Boolean> HOVERING =
             SynchedEntityData.defineId(BabyGhastEntity.class, EntityDataSerializers.BOOLEAN);
 
@@ -235,26 +226,6 @@ public class BabyGhastEntity extends TamableAnimal implements IAnimatable {
     @Override
     protected SoundEvent getDeathSound() {
         return NDSounds.BABY_GHAST_DEATH.get();
-    }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("baby_ghast.animation.fly", true));
-            return PlayState.CONTINUE;
-        }
-
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("baby_ghast.animation.idle", true));
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
-    }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return this.factory;
     }
 
     private class BabyGhastHoverGoal extends Goal {

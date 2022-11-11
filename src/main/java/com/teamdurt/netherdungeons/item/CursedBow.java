@@ -16,40 +16,5 @@ public class CursedBow extends BowItem {
     public CursedBow(Properties properties) {
         super(properties);
     }
-
-    @Override
-    public void releaseUsing(ItemStack itemstack, Level world, LivingEntity entityLiving, int timeLeft) {
-        if (!world.isClientSide() && entityLiving instanceof ServerPlayer entity) {
-            double x = entity.getX();
-            double y = entity.getY();
-            double z = entity.getZ();
-            if (true) {
-                ItemStack stack = ProjectileWeaponItem.getHeldProjectile(entity, e -> e.getItem() == Items.ARROW);
-                if (stack == ItemStack.EMPTY) {
-                    for (int i = 0; i < entity.getInventory().items.size(); i++) {
-                        ItemStack teststack = entity.getInventory().items.get(i);
-                        if (teststack != null && teststack.getItem() == Items.ARROW) {
-                            stack = teststack;
-                            break;
-                        }
-                    }
-                }
-                if (entity.getAbilities().instabuild || stack != ItemStack.EMPTY) {
-                    if (new ItemStack(Items.ARROW).isDamageableItem()) {
-                        if (stack.hurt(1, world.getRandom(), entity)) {
-                            stack.shrink(1);
-                            stack.setDamageValue(0);
-                            if (stack.isEmpty())
-                                entity.getInventory().removeItem(stack);
-                        }
-                    } else {
-                        stack.shrink(1);
-                        if (stack.isEmpty())
-                            entity.getInventory().removeItem(stack);
-                    }
-                }
-            }
-        }
-    }
 }
 

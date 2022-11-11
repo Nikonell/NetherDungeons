@@ -11,11 +11,13 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.MagmaCube;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -74,16 +76,16 @@ public class NDEventsHandler {
         }
     }
 
-    /*@SubscribeEvent
+    @SubscribeEvent
     public static void applyCursedBowEffect(LivingAttackEvent event) {
-        if (event.getEntity().level.isClientSide() || event.getSource().getEntity() == null) {
+        if (event.getEntity().level.isClientSide() || event.getSource().getEntity() == null || event.getSource().getDirectEntity() == null || !event.getSource().getEntity().getHandSlots().iterator().hasNext() || !event.getSource().getDirectEntity().getType().equals(EntityType.ARROW)) {
             return;
         }
         boolean isKeepBow = event.getSource().getEntity().getHandSlots().iterator().next().is(NDItems.CURSED_BOW.get());
         if (isKeepBow) {
             event.getEntity().addEffect(new MobEffectInstance(MobEffects.WITHER, 100));
         }
-    }*/
+    }
 
     @SubscribeEvent
     public static void applyVampirismEffect(LivingDeathEvent event) {

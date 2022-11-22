@@ -36,12 +36,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.EnumSet;
+import java.util.*;
 
 public class BabyGhastEntity extends TamableAnimal {
     private static final EntityDataAccessor<Boolean> HOVERING =
@@ -389,6 +390,7 @@ public class BabyGhastEntity extends TamableAnimal {
     private static class BabyGhastGiveVampirismEffectGoal extends Goal {
         private final BabyGhastEntity babyGhast;
         private LivingEntity owner;
+        private int effectLevel;
 
         public BabyGhastGiveVampirismEffectGoal(BabyGhastEntity babyGhast) {
             this.babyGhast = babyGhast;
@@ -396,16 +398,16 @@ public class BabyGhastEntity extends TamableAnimal {
 
         @Override
         public boolean canUse() {
-            if (this.babyGhast.getOwner() == null) {
-                return false;
-            }
+            if (this.babyGhast.getOwner() == null || this.babyGhast.isHovering() || this.babyGhast.distanceToSqr(this.babyGhast.getOwner()) > 100) return false;
             this.owner = this.babyGhast.getOwner();
-            return !this.babyGhast.isHovering() && this.babyGhast.distanceToSqr(this.owner) <= 100;
+            List<BabyGhastEntity> nearByBabyGhasts = this.owner.getLevel().getEntitiesOfClass(BabyGhastEntity.class, AABB.ofSize(new Vec3(this.owner.getX(), this.owner.getY(), this.owner.getZ()), 10, 10, 10), bg -> bg.isTame() && Objects.equals(bg.getOwner(), this.owner) && !bg.isHovering());
+            this.effectLevel = nearByBabyGhasts.size() > 3 ? 3 : nearByBabyGhasts.size() - 1;
+            return nearByBabyGhasts.size() < 4;
         }
 
         @Override
         public void tick() {
-            owner.addEffect(new MobEffectInstance(NDEffects.VAMPIRISM.get(), 165, 0));
+            owner.addEffect(new MobEffectInstance(NDEffects.VAMPIRISM.get(), 165, this.effectLevel));
         }
     }
 

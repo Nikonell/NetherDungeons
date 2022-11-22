@@ -78,7 +78,7 @@ public class NDEventsHandler {
 
     @SubscribeEvent
     public static void applyCursedBowEffect(LivingAttackEvent event) {
-        if (event.getEntity().level.isClientSide() || event.getSource().getEntity() == null || event.getSource().getDirectEntity() == null || !event.getSource().getEntity().getHandSlots().iterator().hasNext() || !event.getSource().getDirectEntity().getType().equals(EntityType.ARROW)) {
+        if (event.getEntity().level.isClientSide() || (event.getEntity() instanceof Player && ((Player) event.getEntity()).isCreative()) || event.getSource().getEntity() == null || event.getSource().getDirectEntity() == null || !event.getSource().getEntity().getHandSlots().iterator().hasNext() || !event.getSource().getDirectEntity().getType().equals(EntityType.ARROW)) {
             return;
         }
         boolean isKeepBow = event.getSource().getEntity().getHandSlots().iterator().next().is(NDItems.CURSED_BOW.get());
